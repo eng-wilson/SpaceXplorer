@@ -8,5 +8,9 @@ export default {
 
     favorite: '#ED64A6',
   },
-
+  fonts: {
+    light: "Nunito_300Light",
+    regular: "Nunito_400Regular",
+    bold: "Nunito_700Bold",
+  },
 };

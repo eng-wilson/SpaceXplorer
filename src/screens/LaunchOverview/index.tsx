@@ -1,13 +1,20 @@
 import React from "react";
-import { View } from "react-native";
 
-import { Container } from "./styles";
+import {
+  SafeContainer,
+  Container,
+  ScreenTitle,
+  ScreenSubTitle,
+} from "./styles";
 
 const LaunchOverview: React.FC = () => {
   return (
-    <Container>
-      <View />
-    </Container>
+    <SafeContainer>
+      <Container>
+        <ScreenTitle>Welcome to SpaceXplorer</ScreenTitle>
+        <ScreenSubTitle>Discover</ScreenSubTitle>
+      </Container>
+    </SafeContainer>
   );
 };
 
