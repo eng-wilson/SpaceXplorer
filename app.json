@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "spacexplorer",
+    "slug": "spacexplorer",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "spacexplorer"
+}
