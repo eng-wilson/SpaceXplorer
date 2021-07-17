@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TouchableOpacity, Linking } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import Spaceship from "../../assets/spaceship.png";
 
@@ -24,6 +24,8 @@ import {
   Cover,
   EmptyList,
   Label,
+  GoBackIcon,
+  GoBackButton,
 } from "./styles";
 
 interface Params {
@@ -31,6 +33,7 @@ interface Params {
 }
 
 const LaunchDetail: React.FC = () => {
+  const navigation = useNavigation();
   const route = useRoute();
   const [favorites, setFavorites] = useState<string[]>([]);
   const { launch } = route.params as Params;
@@ -48,6 +51,9 @@ const LaunchDetail: React.FC = () => {
 
   return (
     <SafeContainer>
+      <GoBackButton onPress={navigation.goBack}>
+        <GoBackIcon name="chevron-left" />
+      </GoBackButton>
       <ScrollContainer bounces={false}>
         <Background>
           <Cover

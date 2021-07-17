@@ -1,6 +1,6 @@
 import { Dimensions } from "react-native";
 import styled, { css } from "styled-components/native";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Entypo } from "@expo/vector-icons";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -65,6 +65,16 @@ export const RocketIcon = styled(AntDesign)`
   font-size: 24px;
 
   color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const GoBackButton = styled.TouchableOpacity`
+  padding: 10px 10px;
+`;
+
+export const GoBackIcon = styled(Entypo)`
+  font-size: 32px;
+
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const FavoriteIcon = styled(AntDesign)`
@@ -133,7 +143,8 @@ export const LaunchImage = styled.Image`
 
 export const Cover = styled.Image`
   width: 100%;
-  height: 220px;
+  height: 250px;
+  bottom: 1px;
 `;
 
 export const EmptyList = styled.Text`
