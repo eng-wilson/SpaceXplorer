@@ -28,8 +28,8 @@ export const Container = styled.View`
 
   padding: 10px 20px;
 
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 20px;
+
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
@@ -120,9 +120,9 @@ export const Imagelist = styled.View`
 
 export const FavoriteButton = styled.TouchableOpacity``;
 
-export const ImageContainer = styled.View<Props>`
-  height: ${screenWidth * 0.4}px;
-  width: ${screenWidth * 0.4}px;
+export const ImageContainer = styled.TouchableOpacity<Props>`
+  height: ${screenWidth * 1}px;
+  width: 100%;
   background-color: ${({ theme }) => theme.colors.card};
 
   border-radius: 10px;

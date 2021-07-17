@@ -86,15 +86,14 @@ const LaunchDetail: React.FC = () => {
 
           <Imagelist>
             {launch.links.flickr_images.slice(0, 3).map((image) => (
-              <TouchableOpacity
+              <ImageContainer
                 key={image}
                 onPress={() => handleFavorite(image)}
+                active={favorites.includes(image)}
               >
-                <ImageContainer active={favorites.includes(image)}>
-                  <LaunchImage source={{ uri: image }} />
-                  {favorites.includes(image) && <FavoriteIcon name="heart" />}
-                </ImageContainer>
-              </TouchableOpacity>
+                <LaunchImage source={{ uri: image }} />
+                {favorites.includes(image) && <FavoriteIcon name="heart" />}
+              </ImageContainer>
             ))}
 
             {launch.links.flickr_images.length === 0 && (
