@@ -23,6 +23,7 @@ import {
   LaunchImage,
   Cover,
   EmptyList,
+  Label,
 } from "./styles";
 
 interface Params {
@@ -58,7 +59,10 @@ const LaunchDetail: React.FC = () => {
           />
         </Background>
         <Container>
+          <Label>Mission name</Label>
           <LaunchName>{launch.mission_name}</LaunchName>
+
+          <Label>Rocket name</Label>
           <AlignCenterRow>
             <RocketIcon name="rocket1" />
             <RocketName>{launch.rocket.rocket_name}</RocketName>

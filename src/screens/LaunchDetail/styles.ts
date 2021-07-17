@@ -26,11 +26,19 @@ export const ScrollContainer = styled.ScrollView`
 export const Container = styled.View`
   min-height: 100%;
 
-  padding: 30px 20px;
+  padding: 10px 20px;
 
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: ${({ theme }) => theme.colors.background};
+`;
+
+export const Label = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.light};
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.text};
+
+  margin-top: 10px;
 `;
 
 export const LaunchName = styled.Text`
@@ -41,7 +49,7 @@ export const LaunchName = styled.Text`
 
 export const RocketName = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: 18px;
+  font-size: 24px;
   color: ${({ theme }) => theme.colors.primary};
 
   padding-left: 6px;
@@ -54,7 +62,7 @@ export const AlignCenterRow = styled.View`
 `;
 
 export const RocketIcon = styled(AntDesign)`
-  font-size: 18px;
+  font-size: 24px;
 
   color: ${({ theme }) => theme.colors.primary};
 `;
