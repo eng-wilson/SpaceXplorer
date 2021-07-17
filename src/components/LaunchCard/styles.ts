@@ -6,19 +6,19 @@ export const Container = styled.TouchableOpacity`
   align-items: center;
 
   width: 100%;
-  height: 120px;
+  height: 150px;
 
   background-color: ${({ theme }) => theme.colors.card};
   border-radius: 10px;
 
   margin-top: 15px;
 
-  padding: 10px 20px;
+  padding: 10px 15px;
 `;
 
 export const ImageContainer = styled.View`
-  height: 90px;
-  width: 90px;
+  height: 120px;
+  width: 120px;
 
   background-color: ${({ theme }) => theme.colors.background};
 
@@ -28,11 +28,16 @@ export const ImageContainer = styled.View`
 `;
 
 export const InfoContainer = styled.View`
-  height: 90px;
+  flex: 1;
+  height: 120px;
   justify-content: space-between;
 `;
 
-export const Name = styled.Text`
+export const Name = styled.Text.attrs({
+  numberOfLines: 2,
+})`
+  flex: 1;
+  flex-wrap: wrap;
   font-family: ${({ theme }) => theme.fonts.bold};
   font-size: 18px;
 
@@ -46,7 +51,7 @@ export const AlignCenterRow = styled.View`
 `;
 
 export const Info = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${({ theme }) => theme.fonts.bold};
   font-size: 14px;
 
   color: ${({ theme }) => theme.colors.text};

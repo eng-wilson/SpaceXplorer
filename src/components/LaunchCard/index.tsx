@@ -29,7 +29,7 @@ function LaunchCard({ name, onPress, date }: Data) {
           <AlignCenterRow>
             <AntDesignIcon name="clockcircleo" />
             <Info>
-              {date.getMinutes().toString().padStart(2, "0")}:{date.getHours()}h
+              {date.getHours()}:{date.getMinutes().toString().padStart(2, "0")}h
             </Info>
           </AlignCenterRow>
           <AlignCenterRow>

@@ -9,9 +9,12 @@ import {
   Nunito_700Bold,
 } from "@expo-google-fonts/nunito";
 import { NavigationContainer } from "@react-navigation/native";
+import { ApolloProvider } from "@apollo/client";
 
+import { client } from "./src/services";
 import theme from "./src/global/styles/theme";
 import Routes from "./src/routes";
+import "./src/config/Reactotron";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,10 +27,12 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <NavigationContainer>
-      <ThemeProvider theme={theme}>
-        <Routes />
-      </ThemeProvider>
-    </NavigationContainer>
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <ThemeProvider theme={theme}>
+          <Routes />
+        </ThemeProvider>
+      </NavigationContainer>
+    </ApolloProvider>
   );
 }

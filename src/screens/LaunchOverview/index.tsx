@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FlatList } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-
-import { StackNavigationParamsList } from "../../config/types";
+import { useNavigation } from "@react-navigation/native";
 
 import LaunchCard from "../../components/LaunchCard";
+
+import { useGetLaunches } from "../../hooks/launches/useGetLaunches";
 
 import {
   SafeContainer,
@@ -13,11 +13,10 @@ import {
   ScreenSubTitle,
 } from "./styles";
 
-interface LaunchOverviewProps {
-  navigation: StackNavigationProp<StackNavigationParamsList>;
-}
+function LaunchOverview() {
+  const navigation = useNavigation();
+  const launches = useGetLaunches();
 
-function LaunchOverview({ navigation }: LaunchOverviewProps) {
   return (
     <SafeContainer>
       <Container>
@@ -25,12 +24,13 @@ function LaunchOverview({ navigation }: LaunchOverviewProps) {
         <ScreenSubTitle>Discover</ScreenSubTitle>
 
         <FlatList
-          data={[1, 2, 3]}
-          renderItem={() => (
+          data={launches}
+          keyExtractor={(item) => item.mission_name}
+          renderItem={({ item }) => (
             <LaunchCard
               onPress={() => navigation.navigate("LaunchDetail")}
-              name="Starlink-15 (v1.0)"
-              date={new Date()}
+              name={item.mission_name}
+              date={new Date(item.launch_date_local)}
             />
           )}
         />
