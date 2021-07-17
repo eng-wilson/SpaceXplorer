@@ -30,6 +30,7 @@ function LaunchOverview() {
             <LaunchCard
               onPress={() => navigation.navigate("LaunchDetail")}
               name={item.mission_name}
+              imageSource={item.links.flickr_images}
               date={new Date(item.launch_date_local)}
             />
           )}

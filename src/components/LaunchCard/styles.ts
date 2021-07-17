@@ -9,6 +9,7 @@ export const Container = styled.TouchableOpacity`
   height: 150px;
 
   background-color: ${({ theme }) => theme.colors.card};
+
   border-radius: 10px;
 
   margin-top: 15px;
@@ -16,7 +17,7 @@ export const Container = styled.TouchableOpacity`
   padding: 10px 15px;
 `;
 
-export const ImageContainer = styled.View`
+export const ImageContainer = styled.Image`
   height: 120px;
   width: 120px;
 

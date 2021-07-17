@@ -1,6 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 
+import Spaceship from "../../assets/spaceship.png";
+
 import {
   Container,
   ImageContainer,
@@ -12,15 +14,18 @@ import {
 } from "./styles";
 
 interface Data {
-  name: String;
+  name: string;
+  imageSource: string[];
   onPress: Function;
   date: Date;
 }
 
-function LaunchCard({ name, onPress, date }: Data) {
+function LaunchCard({ name, onPress, imageSource, date }: Data) {
   return (
     <Container onPress={() => onPress()}>
-      <ImageContainer />
+      <ImageContainer
+        source={imageSource.length > 0 ? { uri: imageSource[0] } : Spaceship}
+      />
 
       <InfoContainer>
         <Name>{name}</Name>
