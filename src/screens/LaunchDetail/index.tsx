@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 
 import {
@@ -9,14 +9,27 @@ import {
   LaunchName,
   RocketName,
   AlignCenterRow,
-  AntDesignIcon,
+  RocketIcon,
   ActionButton,
   ButtonTitle,
   ImageContainer,
   Imagelist,
+  FavoriteIcon,
 } from "./styles";
 
 const LaunchDetail: React.FC = () => {
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  const handleFavorite = (item: string) => {
+    if (favorites.includes(item)) {
+      setFavorites(favorites.filter((fav) => fav !== item));
+      return;
+    }
+    if (favorites.length <= 2) {
+      setFavorites([...favorites, item]);
+    }
+  };
+
   return (
     <SafeContainer>
       <ScrollContainer bounces={false}>
@@ -24,7 +37,7 @@ const LaunchDetail: React.FC = () => {
         <Container>
           <LaunchName>Starlink-15 (v1.0)</LaunchName>
           <AlignCenterRow>
-            <AntDesignIcon name="rocket1" />
+            <RocketIcon name="rocket1" />
             <RocketName>Falcon 9</RocketName>
           </AlignCenterRow>
 
@@ -32,15 +45,19 @@ const LaunchDetail: React.FC = () => {
             <ButtonTitle>Read article</ButtonTitle>
           </ActionButton>
 
-          <Imagelist
-            data={[1, 2, 3, 4, 5, 6]}
-            numColumns={2}
-            renderItem={() => (
-              <TouchableOpacity>
-                <ImageContainer />
+          <Imagelist>
+            {[1, 2, 3, 4].map((launch) => (
+              <TouchableOpacity
+                onPress={() => handleFavorite(launch.toString())}
+              >
+                <ImageContainer active={favorites.includes(launch.toString())}>
+                  {favorites.includes(launch.toString()) && (
+                    <FavoriteIcon name="heart" />
+                  )}
+                </ImageContainer>
               </TouchableOpacity>
-            )}
-          />
+            ))}
+          </Imagelist>
         </Container>
       </ScrollContainer>
     </SafeContainer>

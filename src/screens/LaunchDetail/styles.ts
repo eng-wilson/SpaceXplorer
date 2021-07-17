@@ -1,8 +1,12 @@
 import { Dimensions } from "react-native";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
 
 const screenWidth = Dimensions.get("window").width;
+
+interface Props {
+  active: boolean;
+}
 
 export const SafeContainer = styled.SafeAreaView`
   flex: 1;
@@ -49,10 +53,20 @@ export const AlignCenterRow = styled.View`
   align-items: center;
 `;
 
-export const AntDesignIcon = styled(AntDesign)`
+export const RocketIcon = styled(AntDesign)`
   font-size: 18px;
 
   color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const FavoriteIcon = styled(AntDesign)`
+  font-size: 18px;
+
+  color: ${({ theme }) => theme.colors.favorite};
+
+  position: absolute;
+  right: -9px;
+  top: -9px;
 `;
 
 export const ActionButton = styled.TouchableOpacity`
@@ -74,19 +88,29 @@ export const ButtonTitle = styled.Text`
   color: ${({ theme }) => theme.colors.button_title};
 `;
 
-export const Imagelist = styled.FlatList`
-  align-self: center;
+export const Imagelist = styled.View`
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
   margin-top: 20px;
 `;
 
 export const FavoriteButton = styled.TouchableOpacity``;
 
-export const ImageContainer = styled.View`
-  height: ${screenWidth * 0.4};
-  width: ${screenWidth * 0.4};
+export const ImageContainer = styled.View<Props>`
+  height: ${screenWidth * 0.4}px;
+  width: ${screenWidth * 0.4}px;
   background-color: ${({ theme }) => theme.colors.card};
 
   border-radius: 10px;
 
-  margin: 10px;
+  margin: 10px 0px;
+
+  ${({ active, theme }) =>
+    active &&
+    css`
+      border: 2px ${theme.colors.favorite};
+    `}
 `;
