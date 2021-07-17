@@ -69,6 +69,7 @@ export const RocketIcon = styled(AntDesign)`
 
 export const GoBackButton = styled.TouchableOpacity`
   padding: 10px 10px;
+  margin-top: 10px;
 `;
 
 export const GoBackIcon = styled(Entypo)`
