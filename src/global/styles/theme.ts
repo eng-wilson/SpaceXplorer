@@ -1,12 +1,12 @@
 export default {
   colors: {
-    primary: '#ECC94B',
-    card: '#2D3748',
-    background: "#171923",
+    primary: "#ECC94B",
+    card: "#553C9A",
+    background: "#322659",
     text: "#FFFFFF",
     button_title: "#000",
 
-    favorite: '#ED64A6',
+    favorite: "#ED64A6",
   },
   fonts: {
     light: "Nunito_300Light",

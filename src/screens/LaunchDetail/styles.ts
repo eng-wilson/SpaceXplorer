@@ -91,9 +91,12 @@ export const ButtonTitle = styled.Text`
 export const Imagelist = styled.View`
   flex: 1;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+
+  flex-wrap: wrap;
+  align-self: center;
+
   margin-top: 20px;
 `;
 
@@ -113,4 +116,22 @@ export const ImageContainer = styled.View<Props>`
     css`
       border: 2px ${theme.colors.favorite};
     `}
+`;
+
+export const LaunchImage = styled.Image`
+  flex: 1;
+  border-radius: 10px;
+`;
+
+export const Cover = styled.Image`
+  width: 100%;
+  height: 220px;
+`;
+
+export const EmptyList = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.regular};
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.text};
+
+  text-align: center;
 `;

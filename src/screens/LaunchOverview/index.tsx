@@ -12,10 +12,15 @@ import {
   ScreenTitle,
   ScreenSubTitle,
 } from "./styles";
+import { LaunchDTO } from "../../dtos/LaunchDTO";
 
 function LaunchOverview() {
   const navigation = useNavigation();
   const launches = useGetLaunches();
+
+  const handleNavigation = (launch: LaunchDTO) => {
+    navigation.navigate("LaunchDetail", { launch });
+  };
 
   return (
     <SafeContainer>
@@ -28,7 +33,7 @@ function LaunchOverview() {
           keyExtractor={(item) => item.mission_name}
           renderItem={({ item }) => (
             <LaunchCard
-              onPress={() => navigation.navigate("LaunchDetail")}
+              onPress={() => handleNavigation(item)}
               name={item.mission_name}
               imageSource={item.links.flickr_images}
               date={new Date(item.launch_date_local)}
