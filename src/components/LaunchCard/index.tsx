@@ -8,6 +8,7 @@ import {
   Name,
   AlignCenterRow,
   Info,
+  AntDesignIcon,
 } from "./styles";
 
 interface Data {
@@ -26,13 +27,16 @@ function LaunchCard({ name, date }: Data) {
 
         <View>
           <AlignCenterRow>
+            <AntDesignIcon name="clockcircleo" />
             <Info>
-              {date.getMinutes()}:{date.getHours()}h
+              {date.getMinutes().toString().padStart(2, "0")}:{date.getHours()}h
             </Info>
           </AlignCenterRow>
           <AlignCenterRow>
+            <AntDesignIcon name="calendar" />
             <Info>
-              {date.getMonth()}/{date.getDate()}/{date.getFullYear()}
+              {date.getMonth().toString().padStart(2, "0")}/
+              {date.getDate().toString().padStart(2, "0")}/{date.getFullYear()}
             </Info>
           </AlignCenterRow>
         </View>

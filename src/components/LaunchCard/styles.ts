@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { AntDesign } from "@expo/vector-icons";
 
 export const Container = styled.TouchableOpacity`
   flex-direction: row;
@@ -49,4 +50,12 @@ export const Info = styled.Text`
   font-size: 14px;
 
   color: ${({ theme }) => theme.colors.text};
+
+  margin-left: 6px;
+`;
+
+export const AntDesignIcon = styled(AntDesign)`
+  font-size: 14px;
+
+  color: ${({ theme }) => theme.colors.primary};
 `;
