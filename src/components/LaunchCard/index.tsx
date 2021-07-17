@@ -12,9 +12,11 @@ import {
 
 interface Data {
   name: String;
+
+  date: Date;
 }
 
-function LaunchCard({ name }: Data) {
+function LaunchCard({ name, date }: Data) {
   return (
     <Container>
       <ImageContainer />
@@ -24,10 +26,14 @@ function LaunchCard({ name }: Data) {
 
         <View>
           <AlignCenterRow>
-            <Info>11:30h</Info>
+            <Info>
+              {date.getMinutes()}:{date.getHours()}h
+            </Info>
           </AlignCenterRow>
           <AlignCenterRow>
-            <Info>11/11/2021</Info>
+            <Info>
+              {date.getMonth()}/{date.getDate()}/{date.getFullYear()}
+            </Info>
           </AlignCenterRow>
         </View>
       </InfoContainer>

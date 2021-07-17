@@ -19,7 +19,9 @@ const LaunchOverview: React.FC = () => {
 
         <FlatList
           data={[1, 2, 3]}
-          renderItem={() => <LaunchCard name="Starlink-15 (v1.0)" />}
+          renderItem={() => (
+            <LaunchCard name="Starlink-15 (v1.0)" date={new Date()} />
+          )}
         />
       </Container>
     </SafeContainer>
