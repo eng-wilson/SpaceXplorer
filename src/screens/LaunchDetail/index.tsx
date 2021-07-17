@@ -4,6 +4,8 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 
 import Spaceship from "../../assets/spaceship.png";
 
+import { useFav } from "../../hooks/fav";
+
 import { LaunchDTO } from "../../dtos/LaunchDTO";
 
 import {
@@ -35,10 +37,10 @@ interface Params {
 const LaunchDetail: React.FC = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const [favorites, setFavorites] = useState<string[]>([]);
   const { launch } = route.params as Params;
+  const { favorites, setFavorites } = useFav();
 
-  console.tron.log(launch);
+  console.tron.log(favorites);
 
   const handleFavorite = (item: string) => {
     if (favorites.includes(item)) {

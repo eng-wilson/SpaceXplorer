@@ -11,6 +11,8 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { ApolloProvider } from "@apollo/client";
 
+import { FavProvider } from "./src/hooks/fav";
+
 import { client } from "./src/services";
 import theme from "./src/global/styles/theme";
 import Routes from "./src/routes";
@@ -30,7 +32,9 @@ export default function App() {
     <ApolloProvider client={client}>
       <NavigationContainer>
         <ThemeProvider theme={theme}>
-          <Routes />
+          <FavProvider>
+            <Routes />
+          </FavProvider>
         </ThemeProvider>
       </NavigationContainer>
     </ApolloProvider>
