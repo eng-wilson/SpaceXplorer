@@ -13,13 +13,13 @@ import {
 
 interface Data {
   name: String;
-
+  onPress: Function;
   date: Date;
 }
 
-function LaunchCard({ name, date }: Data) {
+function LaunchCard({ name, onPress, date }: Data) {
   return (
-    <Container>
+    <Container onPress={() => onPress()}>
       <ImageContainer />
 
       <InfoContainer>

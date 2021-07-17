@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import AppLoading from "expo-app-loading";
@@ -7,10 +8,10 @@ import {
   Nunito_400Regular,
   Nunito_700Bold,
 } from "@expo-google-fonts/nunito";
-
-import LaunchOverview from "./src/screens/LaunchOverview";
+import { NavigationContainer } from "@react-navigation/native";
 
 import theme from "./src/global/styles/theme";
+import Routes from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,8 +24,10 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ThemeProvider theme={theme}>
-      <LaunchOverview />
-    </ThemeProvider>
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
